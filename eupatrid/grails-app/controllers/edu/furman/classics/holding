@@ -1,0 +1,19 @@
+
+   def beforeInterceptor = [
+        action:this.&checkUser,
+        except: ['index','list','show'] 
+    ]
+
+    def checkUser(){
+        if(!session.user){
+            redirect(controller:'editor',action:'login')
+            return false
+        }
+    }
+
+    def familyTree = {
+        String op = ""
+        def ps = Person.list()
+        def rs = Relation.list()
+        render rs as JSON
+    }

@@ -1,0 +1,378 @@
+
+/* Normalizes margin, padding */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td, legend
+{ margin : 0; padding : 0; }
+
+/* Normalizes font-size for headers */
+h1,h2,h3,h4,h5,h6 { font-size : 100%; font-style: normal; font-weight: normal; }
+
+/* Removes list-style from lists */
+ol,ul { list-style : none; }
+
+/* Normalizes font-style and font-weight to normal */
+address, caption, cite, code, dfn, em, strong, th, var
+{ font-style : normal; font-weight : normal; }
+
+/* Removes list-style from lists */
+table { border-collapse : collapse; border-spacing : 0; }
+
+/* Removes border from fieldset and img */
+fieldset,img { border : 0; }
+
+/* Left-aligns text in caption and th */
+caption,th, legend { text-align : left; }
+
+/* Removes quotation marks from q */
+q:before, q:after { content :''; }
+
+/* -------------------------------------------------------------------------- */
+
+html * {
+    margin: 0;
+    /*padding: 0; SELECT NOT DISPLAYED CORRECTLY IN FIREFOX */
+}
+
+/* GENERAL */
+
+.spinner {
+    padding: 5px;
+    position: absolute;
+    right: 0;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* Spacing and Size */
+
+html	{
+	font-family: 	"Lucida Grande", "Trebuchet MS", Tahoma, Verdana, Arial, sans-serif;
+	font-size: 		10pt;
+	background:		#fff; 	
+}
+
+body {
+    background: #fff;
+    color: #333;
+    font: 10pt helvetica, arial, sans-serif;
+    padding: 10px;
+}
+
+
+article {
+	margin-top: 1em;
+	margin-bottom: 1em;
+
+}
+
+/* -------------------------------------------------------------------------- */
+/* Basic Sections */
+
+p {
+	margin-bottom: 1em;
+	margin-top: 1em;
+}
+
+footer, nav, article {
+	padding: 5px;
+}
+
+footer, nav {
+	font-size: 85%;
+	margin-bottom: 1em;
+	margin-top: 1em;
+}
+
+li::before {
+    content: '· '; 
+}
+
+nav  li::before { content: ''; }
+
+footer, header {
+	background: #e1fddd;
+	color: #006000;
+    padding: 5px;
+    font-size: 85%;
+    font-weight: 300;
+}
+
+nav {
+	background: #e1fddd;
+	color: #006000;
+    border-top: 1px solid #e1fddd;
+    border-bottom: 1px solid #e1fddd;
+}
+
+nav ul li {
+	display: inline;
+	padding-right: 2em;
+}
+
+footer {
+	clear: both;
+}
+
+/*
+#grailsLogo {
+	padding:20px;
+}
+*/
+
+footer a, footer a:visited {
+	color: #427836;
+}
+
+a {
+	color: #008040;
+    text-decoration: none;
+}
+
+a:link, a:visited {
+    color: #427836;
+}
+
+a:hover { background-color: #ddd; }
+
+h1, h2 {
+	color: #008000;
+	margin-bottom: 0.5em;
+	margin-top: 1em;
+}
+
+h1 {
+	font-size: 150%;
+    font-weight: 600;
+	margin-top: 1em;
+}
+
+h2 {
+	font-size: 125%;
+    font-weight: 400;
+	margin-top: 1em;
+}
+
+em {
+	font-weight: bold;
+}
+	
+/* Canviz stuff */
+
+#canviz > a {
+	color: navy;
+}
+
+.graph {
+	overflow: scroll; 
+	height: 500px; 
+	width: 100%; 
+	border: 1px solid #427836;
+}
+
+.graph a {
+	color: #427836;
+}
+
+.graph a:hover {
+	font-weight: bold;
+}
+
+/*  */	
+	
+.menuButton {
+    font-size: 10px;
+    padding: 0 5px;
+}
+.menuButton a {
+    color: #333;
+    padding: 4px 6px;
+}
+.menuButton a.home {
+    background: url(../images/skin/house.png) center left no-repeat;
+    color: #333;
+    padding-left: 25px;
+}
+.menuButton a.list {
+    background: url(../images/skin/database_table.png) center left no-repeat;
+    color: #333;
+    padding-left: 25px;
+}
+.menuButton a.create {
+    background: url(../images/skin/database_add.png) center left no-repeat;
+    color: #333;
+    padding-left: 25px;
+}
+	
+	
+/* TABLES */
+
+table {
+    border: 1px solid #ccc;
+    width: 100%
+}
+tr {
+    border: 0;
+}
+td, th {
+    font: 11px verdana, arial, helvetica, sans-serif;
+    line-height: 12px;
+    padding: 5px 6px;
+    text-align: left;
+    vertical-align: top;
+}
+th {
+    background: #fff url(../images/skin/shadow.jpg);
+    color: #666;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 17px;
+    padding: 2px 6px;
+}
+th a:link, th a:visited, th a:hover {
+    color: #333;
+    display: block;
+    font-size: 10px;
+    text-decoration: none;
+    width: 100%;
+}
+th.asc a, th.desc a {
+    background-position: right;
+    background-repeat: no-repeat;
+}
+th.asc a {
+    background-image: url(../images/skin/sorted_asc.gif);
+}
+th.desc a {
+    background-image: url(../images/skin/sorted_desc.gif);
+}
+
+.odd {
+    background: #f7f7f7;
+}
+.even {
+    background: #fff;
+}
+
+/* LIST */
+
+.list table {
+    border-collapse: collapse;
+}
+.list th, .list td {
+    border-left: 1px solid #ddd;
+}
+.list th:hover, .list tr:hover {
+    background: #b2d1ff;
+}
+
+/* PAGINATION */
+
+.paginateButtons {
+    background: #fff url(../images/skin/shadow.jpg) bottom repeat-x;
+    border: 1px solid #ccc;
+    border-top: 0;
+    color: #666;
+    font-size: 10px;
+    overflow: hidden;
+    padding: 10px 3px;
+}
+.paginateButtons a {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-color: #ccc #aaa #aaa #ccc;
+    color: #666;
+    margin: 0 3px;
+    padding: 2px 6px;
+}
+.paginateButtons span {
+    padding: 2px 3px;
+}
+
+/* DIALOG */
+
+.dialog table {
+    padding: 5px 0;
+}
+
+.prop {
+    padding: 5px;
+}
+.prop .name {
+    text-align: left;
+    width: 15%;
+    white-space: nowrap;
+}
+.prop .value {
+    text-align: left;
+    width: 85%;
+}
+
+/* ACTION BUTTONS */
+
+.buttons {
+    background: #fff url(../images/skin/shadow.jpg) bottom repeat-x;
+    border: 1px solid #ccc;
+    color: #666;
+    font-size: 10px;
+    margin-top: 5px;
+    overflow: hidden;
+    padding: 0;
+}
+
+.buttons input {
+    background: #fff;
+    border: 0;
+    color: #333;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: 3px;
+    overflow: visible;
+    padding: 2px 6px;
+}
+.buttons input.delete {
+    background: transparent url(../images/skin/database_delete.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+.buttons input.edit {
+    background: transparent url(../images/skin/database_edit.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+.buttons input.save {
+    background: transparent url(../images/skin/database_save.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+fieldset > div {
+    padding: 5px;
+}
+
+div.message {
+    padding: 5px;
+    color: maroon;
+}
+ol.property-list {
+    padding: 5px;
+    border: 1px solid silver;
+}
+ol.property-list > li {
+    padding-top: 5px;
+    padding-botom: 5px;
+}
+
+li.controller {
+    padding: 5px;
+    font-weight: 300;
+}
+
+li.controller:hover {
+    background-color: #ddd;
+}
+
+div.pagination {
+    padding-top: 5px;
+}
+
+div.pagination > a {
+    padding-left: 5px;
+    padding-right: 5px;
+}

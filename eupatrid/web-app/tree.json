@@ -1,0 +1,266 @@
+[
+    {
+        "class": "edu.furman.classics.Relation",
+        "id": 17,
+        "citeUrn": "urn:cite:eupatrid:relation.PisisexTimo17",
+        "ctsUrn": "urn:cts:greekLit:tlg0086.tlg003:17.4",
+        "editor": {
+            "class": "edu.furman.classics.Editor",
+            "id": 1
+        },
+        "fromPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 6
+        },
+        "fromPersonName": "Pisistratus",
+        "fromPersonUrn": "urn:cite:eupatrid:person.Pisi6",
+        "notes": null,
+        "relationType": "sex",
+        "toPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 11
+        },
+        "toPersonName": "Timonassa",
+        "toPersonUrn": "urn:cite:eupatrid:person.Timo11"
+    },
+    {
+        "class": "edu.furman.classics.Relation",
+        "id": 18,
+        "citeUrn": "urn:cite:eupatrid:relation.PisisexDaug18",
+        "ctsUrn": "urn:cts:greekLit:tlg0086.tlg003:14.1",
+        "editor": {
+            "class": "edu.furman.classics.Editor",
+            "id": 1
+        },
+        "fromPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 6
+        },
+        "fromPersonName": "Pisistratus",
+        "fromPersonUrn": "urn:cite:eupatrid:person.Pisi6",
+        "notes": null,
+        "relationType": "sex",
+        "toPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 10
+        },
+        "toPersonName": "Daughter of Megacles",
+        "toPersonUrn": "urn:cite:eupatrid:person.Daug10"
+    },
+    {
+        "class": "edu.furman.classics.Relation",
+        "id": 19,
+        "citeUrn": "urn:cite:eupatrid:relation.PisiparentHipp19",
+        "ctsUrn": "urn:cts:greekLit:tlg0086.tlg003:17.3",
+        "editor": {
+            "class": "edu.furman.classics.Editor",
+            "id": 1
+        },
+        "fromPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 6
+        },
+        "fromPersonName": "Pisistratus",
+        "fromPersonUrn": "urn:cite:eupatrid:person.Pisi6",
+        "notes": null,
+        "relationType": "parent",
+        "toPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 12
+        },
+        "toPersonName": "Hippias",
+        "toPersonUrn": "urn:cite:eupatrid:person.Hipp12"
+    },
+    {
+        "class": "edu.furman.classics.Relation",
+        "id": 20,
+        "citeUrn": "urn:cite:eupatrid:relation.PisiparentHipp20",
+        "ctsUrn": "urn:cts:greekLit:tlg0086.tlg003:17.3",
+        "editor": {
+            "class": "edu.furman.classics.Editor",
+            "id": 1
+        },
+        "fromPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 6
+        },
+        "fromPersonName": "Pisistratus",
+        "fromPersonUrn": "urn:cite:eupatrid:person.Pisi6",
+        "notes": null,
+        "relationType": "parent",
+        "toPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 13
+        },
+        "toPersonName": "Hipparchus",
+        "toPersonUrn": "urn:cite:eupatrid:person.Hipp13"
+    },
+    {
+        "class": "edu.furman.classics.Relation",
+        "id": 22,
+        "citeUrn": "urn:cite:eupatrid:relation.DaugparentHipp22",
+        "ctsUrn": "urn:cts:greekLit:tlg0086.tlg003:17.3",
+        "editor": {
+            "class": "edu.furman.classics.Editor",
+            "id": 1
+        },
+        "fromPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 10
+        },
+        "fromPersonName": "Daughter of Megacles",
+        "fromPersonUrn": "urn:cite:eupatrid:person.Daug10",
+        "notes": null,
+        "relationType": "parent",
+        "toPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 13
+        },
+        "toPersonName": "Hipparchus",
+        "toPersonUrn": "urn:cite:eupatrid:person.Hipp13"
+    },
+    {
+        "class": "edu.furman.classics.Relation",
+        "id": 23,
+        "citeUrn": "urn:cite:eupatrid:relation.TimoparentIoph23",
+        "ctsUrn": "urn:cts:greekLit:tlg0086.tlg003:17.3",
+        "editor": {
+            "class": "edu.furman.classics.Editor",
+            "id": 1
+        },
+        "fromPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 11
+        },
+        "fromPersonName": "Timonassa",
+        "fromPersonUrn": "urn:cite:eupatrid:person.Timo11",
+        "notes": null,
+        "relationType": "parent",
+        "toPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 15
+        },
+        "toPersonName": "Iophon",
+        "toPersonUrn": "urn:cite:eupatrid:person.Ioph15"
+    },
+    {
+        "class": "edu.furman.classics.Relation",
+        "id": 21,
+        "citeUrn": "urn:cite:eupatrid:relation.DaugsexHipp21",
+        "ctsUrn": "urn:cts:greekLit:tlg0086.tlg003:17.3",
+        "editor": {
+            "class": "edu.furman.classics.Editor",
+            "id": 1
+        },
+        "fromPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 10
+        },
+        "fromPersonName": "Daughter of Megacles",
+        "fromPersonUrn": "urn:cite:eupatrid:person.Daug10",
+        "notes": null,
+        "relationType": "parent",
+        "toPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 12
+        },
+        "toPersonName": "Hippias",
+        "toPersonUrn": "urn:cite:eupatrid:person.Hipp12"
+    },
+    {
+        "class": "edu.furman.classics.Relation",
+        "id": 24,
+        "citeUrn": "urn:cite:eupatrid:relation.TimoparentHege24",
+        "ctsUrn": "urn:cts:greekLit:tlg0086.tlg003:17.3",
+        "editor": {
+            "class": "edu.furman.classics.Editor",
+            "id": 1
+        },
+        "fromPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 11
+        },
+        "fromPersonName": "Timonassa",
+        "fromPersonUrn": "urn:cite:eupatrid:person.Timo11",
+        "notes": null,
+        "relationType": "parent",
+        "toPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 16
+        },
+        "toPersonName": "Hegestratus",
+        "toPersonUrn": "urn:cite:eupatrid:person.Hege16"
+    },
+    {
+        "class": "edu.furman.classics.Relation",
+        "id": 25,
+        "citeUrn": "urn:cite:eupatrid:relation.PisiparentIoph25",
+        "ctsUrn": "urn:cts:greekLit:tlg0086.tlg003:17.3",
+        "editor": {
+            "class": "edu.furman.classics.Editor",
+            "id": 1
+        },
+        "fromPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 6
+        },
+        "fromPersonName": "Pisistratus",
+        "fromPersonUrn": "urn:cite:eupatrid:person.Pisi6",
+        "notes": null,
+        "relationType": "parent",
+        "toPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 15
+        },
+        "toPersonName": "Iophon",
+        "toPersonUrn": "urn:cite:eupatrid:person.Ioph15"
+    },
+    {
+        "class": "edu.furman.classics.Relation",
+        "id": 26,
+        "citeUrn": "urn:cite:eupatrid:relation.PisiparentHege26",
+        "ctsUrn": "urn:cts:greekLit:tlg0086.tlg003:17.3",
+        "editor": {
+            "class": "edu.furman.classics.Editor",
+            "id": 1
+        },
+        "fromPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 6
+        },
+        "fromPersonName": "Pisistratus",
+        "fromPersonUrn": "urn:cite:eupatrid:person.Pisi6",
+        "notes": null,
+        "relationType": "parent",
+        "toPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 16
+        },
+        "toPersonName": "Hegestratus",
+        "toPersonUrn": "urn:cite:eupatrid:person.Hege16"
+    },
+    {
+        "class": "edu.furman.classics.Relation",
+        "id": 27,
+        "citeUrn": "urn:cite:eupatrid:relation.MegaparentDaug27",
+        "ctsUrn": "urn:cts:greekLit:tlg0086.tlg003:14.4",
+        "editor": {
+            "class": "edu.furman.classics.Editor",
+            "id": 1
+        },
+        "fromPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 9
+        },
+        "fromPersonName": "Megacles",
+        "fromPersonUrn": "urn:cite:eupatrid:person.Mega9",
+        "notes": null,
+        "relationType": "parent",
+        "toPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 10
+        },
+        "toPersonName": "Daughter of Megacles",
+        "toPersonUrn": "urn:cite:eupatrid:person.Daug10"
+    }
+]
