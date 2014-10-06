@@ -120,9 +120,8 @@
         		<li><a href="${resource(dir : '/')}">Home</a></li>
         		<!-- <li><g:link url="[action:'graph',controller:'relationship']">Graph</g:link></li> -->
         		<!-- <li><a href="${resource(dir : '/')}/mythogony.pdf">Graph as PDF</a></li> -->
-        		<li>Download Source</li>
-        		<li>Download Data</li>
-        		<li>Classics@Furman</li>
+        		<li><a href="fdg.html">View Relationship Tree</a></li>
+        		<li><a href="http://folio.furman.edu/citeservlet">Furman Classics Digital Library</a></li>
         		<li>
         		
         		<g:if test="${session.user}">
