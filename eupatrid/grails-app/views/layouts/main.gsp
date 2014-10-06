@@ -23,7 +23,7 @@
         	<ul>
         		<li><a href="${resource(dir : '/')}">Home</a></li>
         		<li><a href="http://folio.furman.edu/citeservlet">CITE Data</a></li>
-        		<li><a href="fdg.html">View Relation Tree</a></li>
+        		<li><a href="http://folio.furman.edu/eupatrid/fdg.html">View Relation Tree</a></li>
         		<li><a href="http://folio.furman.edu">Digital Library Research at Furman</a></li>
         	</ul>
         </nav>
