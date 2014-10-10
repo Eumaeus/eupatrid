@@ -15,7 +15,7 @@ class Location {
                     locationLabel(blank: false)
                     pleiadesUrn(blank: false, matchs: "urn:cite:fufolio:pleiades\\.[0-9]+")
                     person(nullable: false)
-                    locationType(inList : ['isAt','isFrom','namedAfter'])
+                    locationType(inList : ['isAt','isFrom','namedAfter','demoticName'])
                     ctsUrn(blank: false, matches: "urn:cts:[a-zA-Z0-9]+:[a-zA-Z0-9]+\\.[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*:([a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*)(-([a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*))?")
                     editor(nullable: false)
     }
