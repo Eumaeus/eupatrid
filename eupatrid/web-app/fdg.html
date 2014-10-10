@@ -4,60 +4,53 @@
 <title>Eupatrid Family Tree</title>
 <meta charset="utf-8"> 
 <link rel="stylesheet" href="css/myth.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="http://d3js.org/d3.v3.js"></script>
-
 <style>
-
-div#graph {
-        box-sizing: border-box;
-        /* width: 60%;
-        float: right; */
-        border: 1px solid silver;
+.link {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.5px;
 }
 
-div#evidence {
-        box-sizing: border-box;
-        width: 40%;
-        float:right;
-        border: 1px solid blue;
+#licensing {
+  fill: green;
 }
 
-path.link {
-        fill: none;
-        stroke: #666;
-        stroke-width: 1.5px;
+.link.sex {
+  stroke: #f69;
 }
 
-path.link.twofive {
-        /* opacity: 0.25; */
-        stroke: #f39;
+.link.parent {
+  stroke: blue;
 }
 
-path.link.fivezero {
-        /* opacity: 0.50; */
-        stroke: #33f;
+.link.ancestor {
+  stroke: #ddf;
 }
 
-path.link.sevenfive {
-        /* opacity: 0.75; */
-        stroke: #3f3;
+.link.sameName {
+  stroke: #ccc;
 }
 
-path.link.onezerozero {
-        opacity: 0.15; 
-        stroke: #111;
+.link.ancestor {
+  stroke: #ddf;
+}
+
+.link.xenia {
+  stroke-dasharray: 0,2 1;
 }
 
 circle {
-        fill: #ccc;
-        stroke: #fff;
-        stroke-width: 1.5px;
+  fill: #ccc;
+  stroke: #333;
+  stroke-width: 1.5px;
 }
 
 text {
-        fill: #000;
-        font: 10px sans-serif;
-        pointer-events: none;
+  font: 10px sans-serif;
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
 }
 
 </style>
@@ -86,200 +79,115 @@ text {
  <footer>
 Digital Library research at Furman Univeristy’s Department of Classics has received support from the Andrew W. Mellon Foundation. All materials here are CC-BY-NC-SA 3.0. 
 	</footer>
-
-
 <script>
 
-// get the data
-d3.json("http://localhost:8080/eupatrid/person/familyTree", function(error, raw) {
+endpoint = "person/familyTree";
+//endpoint = "tree.json";
 
+function getRemote() {
+    return $.ajax({
+        type: "GET",
+        url: endpoint,
+        crossDomain: true,
+        async: false
+    }).responseText;
+}
+//console.log(raw);
 
-                //var links = [ {"source":"Harry","target":"Sally","value":"1.2"}, {"source":"Harry","target":"Mario","value":"1.3"}, {"source":"Sarah","target":"Alice","value":"0.2"}, {"source":"Eveie","target":"Alice","value":"0.5"}, {"source":"Peter","target":"Alice","value":"1.6"}, {"source":"Mario","target":"Alice","value":"0.4"}, {"source":"James","target":"Alice","value":"0.6"}, {"source":"Harry","target":"Carol","value":"0.7"}, {"source":"Harry","target":"Nicky","value":"0.8"}, {"source":"Bobby","target":"Frank","value":"0.8"}, {"source":"Alice","target":"Mario","value":"0.7"}, {"source":"Harry","target":"Lynne","value":"0.5"}, {"source":"Sarah","target":"James","value":"1.9"} ];
+//jraw = JSON.parse(raw);
 
-                var links = [];
-                raw.forEach(function(rj){
-                        var tl = {};
-                        tl.source = rj.fromPerson.id;
-                        tl.sourceName = rj.fromPersonName;
-                        tl.target = rj.toPerson.id;
-                        tl.targetName = rj.toPersonName;
-                        tl.cts = rj.ctsUrn;
-                        if(rj.relationType == "sex"){ tl.value = "1"; }
-                        if(rj.relationType == "parent"){ tl.value = "25"; }
-                        if(rj.relationType == "ancestor"){ tl.value = "50"; }
-                        if(rj.relationType == "sameName"){ tl.value = "75"; }
-                        links.push(tl);
-                        });
+raw = JSON.parse(getRemote());
 
-
-                var nodes = {};
-
-                // Compute the distinct nodes from the links.
-                /*
-                   links.forEach(function(link) {
-                   link.id = nodes[link.id] || 
-                   (nodes[link.id] = {name: link.fromPersonName});
-                   link.toPerson.id = nodes[link.toPerson.id] || 
-                   (nodes[link.toPerson.id] = {name: link.toPersonName});
-                   link.value = 1;
-
-                   });
-                 */
-                // Compute the distinct nodes from the links.
-                links.forEach(function(link) {
-                                link.source = nodes[link.source] || 
-                                (nodes[link.source] = {name: link.sourceName, urn: link.cts});
-                                link.target = nodes[link.target] || 
-                                (nodes[link.target] = {name: link.targetName, urn: link.cts});
-                                link.value = +link.value;
-                                });
-                //for (var key in nodes){
-                //   console.log(nodes[key]);
-                //}
-
-
-
-
-                // Compute links from the raw json
-                //var links = {};
-
-                var width = 960,
-                    height = 500,
-                    color = d3.scale.category20c();
-
-
-                var force = d3.layout.force()
-                        .nodes(d3.values(nodes))
-                        .links(links)
-                        .size([width, height])
-                        .friction(0.9)
-                        .linkDistance(100)
-                        .charge(-900)
-                        .on("tick", tick)
-                        .start();
-
-                // Set the range
-                var  v = d3.scale.linear().range([0, 100]);
-
-                // Scale the range of the data
-                v.domain([0, d3.max(links, function(d) { return d.value; })]);
-
-                // asign a type per value to encode opacity
-                links.forEach(function(link) {
-                                if (v(link.value) <= 25) {
-                                link.type = "twofive";
-                                } else if (v(link.value) <= 50 && v(link.value) > 25) {
-                                link.type = "fivezero";
-                                } else if (v(link.value) <= 75 && v(link.value) > 50) {
-                                link.type = "sevenfive";
-                                } else if (v(link.value) <= 100 && v(link.value) > 75) {
-                                link.type = "onezerozero";
-                                }
-                                });
-
-                var svg = d3.select("div#graph").append("svg")
-                        .attr("width", width)
-                        .attr("height", height);
-
-                // build the arrow.
-                svg.append("svg:defs").selectAll("marker")
-                        .data(["end"])      // Different link/path types can be defined here
-                        .enter().append("svg:marker")    // This section adds in the arrows
-                        .attr("id", String)
-                        .attr("viewBox", "0 -5 10 10")
-                        .attr("refX", 15)
-                        .attr("refY", -1.5)
-                        .attr("markerWidth", 6)
-                        .attr("markerHeight", 6)
-                        .attr("orient", "auto")
-                        .append("svg:path")
-                        .attr("d", "M0,-5L10,0L0,5");
-
-                // add the links and the arrows
-                var path = svg.append("svg:g").selectAll("path")
-                        .data(force.links())
-                        .enter().append("svg:path")
-                        .attr("class", function(d) { return "link " + d.type; })
-                        .attr("marker-end", "url(#end)");
-
-                // define the nodes
-                var node = svg.selectAll(".node")
-                        .data(force.nodes())
-                        .enter().append("g")
-                        .attr("class", "node")
-                        .on("click", click)
-                        .on("dblclick", dblclick)
-                        .call(force.drag);
-
-                // add the nodes
-                node.append("circle")
-                        .attr("r", 5)
-                        .style("fill", function(d) { return color(d.name); });
-
-
-                // add the text 
-                node.append("text")
-                        .attr("x", 12)
-                        .attr("dy", ".35em")
-                        .attr("data-urn", function(d) { return d.urn; })
-                        .text(function(d) { return d.name; });
-
-
-                // add the curvy lines
-                function tick() {
-                        path.attr("d", function(d) {
-                                        var dx = d.target.x - d.source.x,
-                                        dy = d.target.y - d.source.y,
-                                        dr = Math.sqrt(dx * dx + dy * dy);
-                                        return "M" + 
-                                        d.source.x + "," + 
-                                        d.source.y + "A" + 
-                                        dr + "," + dr + " 0 0,1 " + 
-                                        d.target.x + "," + 
-                                        d.target.y;
-                                        });
-
-                        node
-                                .attr("transform", function(d) { 
-                                return "translate(" + d.x + "," + d.y + ")"; }); 
-                }
-
-                // action to take on mouse click
-                function click() {
-                        d3.select(this).select("text").transition()
-                                .duration(750)
-                                .attr("x", 22)
-                                .style("stroke", "lightsteelblue")
-                                .style("stroke-width", ".5px")
-                                .style("font", "20px sans-serif");
-                        d3.select(this).select("circle").transition()
-                                .duration(750)
-                                .attr("r", 16);
-                }
-
-                // action to take on mouse double click
-                function dblclick() {
-                        d3.select(this).select("circle").transition()
-                                .duration(750)
-                                .attr("r", 6);
-                        d3.select(this).select("text").transition()
-                                .duration(750)
-                                .attr("x", 12)
-                                .style("stroke", "none")
-                                .style("fill", "black")
-                                .style("stroke", "none")
-                                .style("font", "10px sans-serif");
-                        showCiteStuff(this);
-                        force.alpha([-5]);
-                }
-
+var links = [];
+raw.forEach(function(rj){
+        var tl = {};
+        tl.source = rj.fromPerson.id;
+        tl.sourceName = rj.fromPersonName;
+        tl.target = rj.toPerson.id;
+        tl.targetName = rj.toPersonName;
+        tl.cts = rj.ctsUrn;
+        tl.type = rj.relationType;
+        links.push(tl);
 });
 
-function showCiteStuff(citeObject){
-        console.log( d3.select(citeObject).select("text").attr("data-urn"));
+var nodes = {};
+
+// Compute the distinct nodes from the links.
+links.forEach(function(link) {
+  link.source = nodes[link.source] || (nodes[link.source] = {name: link.sourceName});
+  link.target = nodes[link.target] || (nodes[link.target] = {name: link.targetName});
+});
+
+var width = 960,
+    height = 500;
+
+var force = d3.layout.force()
+    .nodes(d3.values(nodes))
+    .links(links)
+    .size([width, height])
+    .linkDistance(60)
+    .charge(-300)
+    .on("tick", tick)
+    .start();
+
+var svg = d3.select("div#graph").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+// Per-type markers, as they don't inherit styles.
+svg.append("defs").selectAll("marker")
+    .data(["suit", "licensing", "resolved"])
+  .enter().append("marker")
+    .attr("id", function(d) { return d; })
+    .attr("viewBox", "0 -5 10 10")
+    .attr("refX", 15)
+    .attr("refY", -1.5)
+    .attr("markerWidth", 6)
+    .attr("markerHeight", 6)
+    .attr("orient", "auto")
+  .append("path")
+    .attr("d", "M0,-5L10,0L0,5");
+
+var path = svg.append("g").selectAll("path")
+    .data(force.links())
+  .enter().append("path")
+    .attr("class", function(d) { return "link " + d.type; })
+    .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
+
+var circle = svg.append("g").selectAll("circle")
+    .data(force.nodes())
+  .enter().append("circle")
+    .attr("r", 6)
+    .call(force.drag);
+
+var text = svg.append("g").selectAll("text")
+    .data(force.nodes())
+  .enter().append("text")
+    .attr("x", 8)
+    .attr("y", ".31em")
+    .text(function(d) { return d.name; });
+
+// Use elliptical arc path segments to doubly-encode directionality.
+function tick() {
+  path.attr("d", linkArc);
+  circle.attr("transform", transform);
+  text.attr("transform", transform);
 }
 
+function linkArc(d) {
+  var dx = d.target.x - d.source.x,
+      dy = d.target.y - d.source.y,
+      dr = Math.sqrt(dx * dx + dy * dy);
+  return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,1 " + d.target.x + "," + d.target.y;
+}
+
+function transform(d) {
+  return "translate(" + d.x + "," + d.y + ")";
+}
+
+
 </script>
+<div id="data"></div>
 <ul id="citekit-sources">
 	<!-- Folio Server at Furman: citeservlet -->
 	<li class="citekit-source cite-text" id="svc-folio-cts">http://folio.furman.edu/citeservlet/texts</li>
