@@ -39,14 +39,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${editorInstance?.password}">
-				<li class="fieldcontain">
-					<span id="password-label" class="property-label"><g:message code="editor.password.label" default="Password" /></span>
-					
-						<span class="property-value" aria-labelledby="password-label"><g:fieldValue bean="${editorInstance}" field="password"/></span>
-					
-				</li>
-				</g:if>
 			
 				<g:if test="${editorInstance?.bio}">
 				<li class="fieldcontain">

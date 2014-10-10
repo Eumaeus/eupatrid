@@ -26,9 +26,7 @@
 						<g:sortableColumn property="editorId" title="${message(code: 'editor.editorId.label', default: 'Editor Id')}" />
 					
 						<g:sortableColumn property="fullName" title="${message(code: 'editor.fullName.label', default: 'Full Name')}" />
-					
-						<g:sortableColumn property="password" title="${message(code: 'editor.password.label', default: 'Password')}" />
-					
+											
 						<g:sortableColumn property="bio" title="${message(code: 'editor.bio.label', default: 'Bio')}" />
 					
 					</tr>
@@ -40,8 +38,6 @@
 						<td><g:link action="show" id="${editorInstance.id}">${fieldValue(bean: editorInstance, field: "editorId")}</g:link></td>
 					
 						<td>${fieldValue(bean: editorInstance, field: "fullName")}</td>
-					
-						<td>${fieldValue(bean: editorInstance, field: "password")}</td>
 					
 						<td>${fieldValue(bean: editorInstance, field: "bio")}</td>
 					
