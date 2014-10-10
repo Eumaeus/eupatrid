@@ -10,12 +10,14 @@
 .link {
   fill: none;
   stroke: #666;
-  stroke-width: 1.5px;
+  stroke-width: 6px;
 }
 
 #licensing {
   fill: green;
 }
+
+.linklabel { color: maroon; }
 
 .link.sex {
   stroke: #f69;
@@ -26,7 +28,7 @@
 }
 
 .link.ancestor {
-  stroke: #ddf;
+  stroke: #bbf;
 }
 
 .link.sameName {
@@ -45,6 +47,13 @@ circle {
   fill: #ccc;
   stroke: #333;
   stroke-width: 1.5px;
+}
+
+div#evidence {
+
+}
+div#graph {
+
 }
 
 text {
@@ -72,17 +81,20 @@ text {
         </ul>
 </div>
 <h1>Eupatrid Family Tree</h1>
-<!-- <div id="evidence" style="padding: 15px;">
+<div id="evidence" style="padding: 15px;">
         <p>Evidence here.</p>
-</div> -->
+</div>
 <div id="graph" style="padding: 15px;"></div>
- <footer>
-Digital Library research at Furman Univeristy’s Department of Classics has received support from the Andrew W. Mellon Foundation. All materials here are CC-BY-NC-SA 3.0. 
-	</footer>
 <script>
 
-endpoint = "person/familyTree";
-//endpoint = "tree.json";
+function displayCite(type, urn){
+        temp = "<h2>Evidence for " + type + ": " + urn + "</h2>";
+    $("div#evidence").html(temp);
+}
+
+
+//endpoint = "person/familyTree";
+endpoint = "tree.json";
 
 function getRemote() {
     return $.ajax({
@@ -102,9 +114,12 @@ var links = [];
 raw.forEach(function(rj){
         var tl = {};
         tl.source = rj.fromPerson.id;
+        tl.sourceUrn = rj.fromPersonUrn;
+        tl.targetUrn = rj.toPersonUrn;
         tl.sourceName = rj.fromPersonName;
         tl.target = rj.toPerson.id;
         tl.targetName = rj.toPersonName;
+        tl.citeUrn = rj.citeUrn;
         tl.cts = rj.ctsUrn;
         tl.type = rj.relationType;
         links.push(tl);
@@ -114,8 +129,8 @@ var nodes = {};
 
 // Compute the distinct nodes from the links.
 links.forEach(function(link) {
-  link.source = nodes[link.source] || (nodes[link.source] = {name: link.sourceName});
-  link.target = nodes[link.target] || (nodes[link.target] = {name: link.targetName});
+  link.source = nodes[link.source] || (nodes[link.source] = {name: link.sourceName, citeUrn: link.sourceUrn});
+  link.target = nodes[link.target] || (nodes[link.target] = {name: link.targetName, citeUrn: link.targetUrn});
 });
 
 var width = 960,
@@ -126,7 +141,7 @@ var force = d3.layout.force()
     .links(links)
     .size([width, height])
     .linkDistance(60)
-    .charge(-300)
+    .charge(-900)
     .on("tick", tick)
     .start();
 
@@ -151,14 +166,28 @@ svg.append("defs").selectAll("marker")
 var path = svg.append("g").selectAll("path")
     .data(force.links())
   .enter().append("path")
+    .on("click", function(d){ displayCite("Relation", d.citeUrn); })
     .attr("class", function(d) { return "link " + d.type; })
     .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
+
+var linktext = svg.selectAll("g.linklabelholder").data(links);
+    linktext.enter().append("g").attr("class", "linklabelholder")
+     .append("text")
+     .attr("class", "linklabel")
+     .attr("dx", 1)
+     .attr("dy", ".35em")
+     .attr("text-anchor", "middle")
+     .text(function(d) { return  ""  });
+
+    //.on("click", function(d){ alert(d.targetName); })
 
 var circle = svg.append("g").selectAll("circle")
     .data(force.nodes())
   .enter().append("circle")
     .attr("r", 6)
-    .call(force.drag);
+    .call(force.drag)
+    .on("click", function(d){ displayCite("Person", d.citeUrn); });
+
 
 var text = svg.append("g").selectAll("text")
     .data(force.nodes())
@@ -172,6 +201,10 @@ function tick() {
   path.attr("d", linkArc);
   circle.attr("transform", transform);
   text.attr("transform", transform);
+  // link label
+     linktext.attr("transform", function(d) {
+      return "translate(" + (d.source.x + d.target.x) / 2 + "," 
+      + (d.source.y + d.target.y) / 2 + ")"; });
 }
 
 function linkArc(d) {
@@ -187,7 +220,6 @@ function transform(d) {
 
 
 </script>
-<div id="data"></div>
 <ul id="citekit-sources">
 	<!-- Folio Server at Furman: citeservlet -->
 	<li class="citekit-source cite-text" id="svc-folio-cts">http://folio.furman.edu/citeservlet/texts</li>
@@ -201,6 +233,10 @@ function transform(d) {
 			</ul>
 	</li>
 </ul>
+
+ <footer>
+Digital Library research at Furman Univeristy’s Department of Classics has received support from the Andrew W. Mellon Foundation. All materials here are CC-BY-NC-SA 3.0. 
+	</footer>
 
 <script type='text/javascript' src='http://folio.furman.edu/citeservlet/citekit/js/cite-jq.js'> </script>
 </body>
