@@ -17,7 +17,7 @@ class Relation {
     static constraints = {
         citeUrn(display: false, nullable: true, blank: true)
         fromPerson(nullable: false)
-        relationType(inList: ["sex","parent","ancestor","sameName"])
+        relationType(inList: ["sex","parent","ancestor","sameName","xenia"])
         toPerson(nullable: false)
         ctsUrn(blank: false, matches: "urn:cts:[a-zA-Z0-9]+:[a-zA-Z0-9]+\\.[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*:([a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*)(-([a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*))?")
         notes(blank:true,nullable: true,size:0..1000)
