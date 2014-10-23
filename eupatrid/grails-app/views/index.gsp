@@ -10,7 +10,7 @@
 	</head>
 	<body>
 				<div id="page-body" role="main">
-			<h1>Eupatrid · Visualizing Classical Athenian Hisory</h1>
+			<h1>Eupatrid · Visualizing Classical Athenian History</h1>
             <p>This is an online tool for capturing information about people and places in ancient Athenian history.</p>
 			<div id="controller-list" role="navigation">
 				<h2>Choose What Data to View or Edit:</h2>
