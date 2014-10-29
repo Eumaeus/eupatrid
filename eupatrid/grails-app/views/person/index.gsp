@@ -22,7 +22,8 @@
 			<table>
 			<thead>
 					<tr>
-					
+				<g:sortableColumn property="citeUrn" title="${message(code: 'person.personName.label', default: 'URN')}" />
+	
 						<g:sortableColumn property="personName" title="${message(code: 'person.personName.label', default: 'Person Name')}" />
 					
 						<g:sortableColumn property="ctsUrn" title="${message(code: 'person.ctsUrn.label', default: 'Cts Urn')}" />
@@ -37,6 +38,7 @@
 				<g:each in="${personInstanceList}" status="i" var="personInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
+						<td>${fieldValue(bean: personInstance, field: "citeUrn")}</td>
 						<td><g:link action="show" id="${personInstance.id}">${fieldValue(bean: personInstance, field: "personName")}</g:link></td>
 					
 						<td>${fieldValue(bean: personInstance, field: "ctsUrn")}</td>

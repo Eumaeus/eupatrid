@@ -262,5 +262,77 @@
         },
         "toPersonName": "Daughter of Megacles",
         "toPersonUrn": "urn:cite:eupatrid:person.Daug10"
+    },
+    {
+        "class": "edu.furman.classics.Relation",
+        "id": 29,
+        "citeUrn": "urn:cite:eupatrid:relation.AlcmparentMega29",
+        "ctsUrn": "urn:cts:greekLit:tlg0086.tlg003:13.4",
+        "editor": {
+            "class": "edu.furman.classics.Editor",
+            "id": 1
+        },  
+        "fromPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 28
+        },
+        "fromPersonName": "Alcmeon",
+        "fromPersonUrn": "urn:cite:eupatrid:person.Alcm28",
+        "notes": null,
+        "relationType": "parent",
+        "toPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 9
+        },
+        "toPersonName": "Megacles",
+        "toPersonUrn": "urn:cite:eupatrid:person.Mega9"
+    },
+    {
+        "class": "edu.furman.classics.Relation",
+        "id": 32,
+        "citeUrn": "urn:cite:eupatrid:relation.CharparentHipp32",
+        "ctsUrn": "urn:cts:greekLit:tlg0086.tlg003:22.4",
+        "editor": {
+            "class": "edu.furman.classics.Editor",
+            "id": 1
+        },
+        "fromPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 31
+        },
+        "fromPersonName": "Charmus",
+        "fromPersonUrn": "urn:cite:eupatrid:person.Char31",
+        "notes": null,
+        "relationType": "parent",
+        "toPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 30
+        },
+        "toPersonName": "Hipparchus",
+        "toPersonUrn": "urn:cite:eupatrid:person.Hipp30"
+    },
+    {
+        "class": "edu.furman.classics.Relation",
+        "id": 33,
+        "citeUrn": "urn:cite:eupatrid:relation.HippsameNameAlcm33",
+        "ctsUrn": "urn:cts:greekLit:tlg0086.tlg003:22.4",
+        "editor": {
+            "class": "edu.furman.classics.Editor",
+            "id": 1
+        },
+        "fromPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 13
+        },
+        "fromPersonName": "Hipparchus",
+        "fromPersonUrn": "urn:cite:eupatrid:person.Hipp13",
+        "notes": null,
+        "relationType": "sameName",
+        "toPerson": {
+            "class": "edu.furman.classics.Person",
+            "id": 30
+        },
+        "toPersonName": "Hipparchus",
+        "toPersonUrn": "urn:cite:eupatrid:person.Hipp30"
     }
 ]

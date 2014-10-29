@@ -22,6 +22,15 @@
 			</g:if>
 			<ol class="property-list relation">
 			
+				<g:if test="${relationInstance?.citeUrn}">
+				<li class="fieldcontain">
+					<span id="citeUrn-label" class="property-label"><g:message code="relation.citeUrn.label" default="URN" /></span>
+					
+						<span class="property-value" aria-labelledby="fromPerson-label"><g:link controller="person" action="show" id="${relationInstance?.fromPerson?.id}">${relationInstance?.fromPerson?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+
 				<g:if test="${relationInstance?.fromPerson}">
 				<li class="fieldcontain">
 					<span id="fromPerson-label" class="property-label"><g:message code="relation.fromPerson.label" default="From Person" /></span>

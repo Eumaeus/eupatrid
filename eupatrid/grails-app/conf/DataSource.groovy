@@ -4,7 +4,7 @@ dataSource {
     driverClassName = "org.postgresql.Driver"
     dialect = "org.hibernate.dialect.PostgreSQLDialect"
     username = "chrisblackwell"
-    password = ""
+    password = "pietas"
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -21,7 +21,7 @@ environments {
         dataSource {
             driverClassName = "org.postgresql.Driver"
             username = "chrisblackwell"
-            password = ""
+            password = "pietas"
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:postgresql://localhost:5432/eupatrid"
         }
@@ -30,7 +30,7 @@ environments {
         dataSource {
             driverClassName = "org.postgresql.Driver"
             username = "chrisblackwell"
-            password = ""
+            password = "pietas"
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:postgresql://localhost:5432/eupatrid"
         }
@@ -40,7 +40,7 @@ environments {
             dbCreate = "update"
             driverClassName = "org.postgresql.Driver"
             username = "chrisblackwell"
-            password = ""
+            password = "pietas"
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:postgresql://localhost:5432/eupatrid"
             properties {

@@ -63,20 +63,20 @@ printHtmlPart(20)
 if(true && (session.user)) {
 printHtmlPart(21)
 createClosureForHtmlPart(22, 3)
-invokeTag('link','g',129,['url':([controller:'editor', action:'doLogout'])],3)
+invokeTag('link','g',128,['url':([controller:'editor', action:'doLogout'])],3)
 printHtmlPart(23)
 }
 else {
 printHtmlPart(24)
 createClosureForHtmlPart(25, 3)
-invokeTag('link','g',132,['url':([controller:'editor', action:'login'])],3)
+invokeTag('link','g',131,['url':([controller:'editor', action:'login'])],3)
 printHtmlPart(26)
 }
 printHtmlPart(27)
-invokeTag('layoutBody','g',138,[:],-1)
+invokeTag('layoutBody','g',137,[:],-1)
 printHtmlPart(28)
 })
-invokeTag('captureBody','sitemesh',142,[:],1)
+invokeTag('captureBody','sitemesh',141,[:],1)
 printHtmlPart(29)
 }
 public static final Map JSP_TAGS = new HashMap()
@@ -84,7 +84,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1412557353000L
+public static final long LAST_MODIFIED = 1412606356000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

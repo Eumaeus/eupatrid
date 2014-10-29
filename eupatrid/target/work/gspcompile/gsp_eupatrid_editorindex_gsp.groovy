@@ -53,44 +53,40 @@ printHtmlPart(11)
 invokeTag('sortableColumn','g',26,['property':("editorId"),'title':(message(code: 'editor.editorId.label', default: 'Editor Id'))],-1)
 printHtmlPart(12)
 invokeTag('sortableColumn','g',28,['property':("fullName"),'title':(message(code: 'editor.fullName.label', default: 'Full Name'))],-1)
-printHtmlPart(12)
-invokeTag('sortableColumn','g',30,['property':("password"),'title':(message(code: 'editor.password.label', default: 'Password'))],-1)
-printHtmlPart(12)
-invokeTag('sortableColumn','g',32,['property':("bio"),'title':(message(code: 'editor.bio.label', default: 'Bio'))],-1)
 printHtmlPart(13)
+invokeTag('sortableColumn','g',30,['property':("bio"),'title':(message(code: 'editor.bio.label', default: 'Bio'))],-1)
+printHtmlPart(14)
 loop:{
 int i = 0
 for( editorInstance in (editorInstanceList) ) {
-printHtmlPart(14)
-expressionOut.print((i % 2) == 0 ? 'even' : 'odd')
 printHtmlPart(15)
+expressionOut.print((i % 2) == 0 ? 'even' : 'odd')
+printHtmlPart(16)
 createTagBody(3, {->
 expressionOut.print(fieldValue(bean: editorInstance, field: "editorId"))
 })
-invokeTag('link','g',40,['action':("show"),'id':(editorInstance.id)],3)
-printHtmlPart(16)
-expressionOut.print(fieldValue(bean: editorInstance, field: "fullName"))
-printHtmlPart(16)
-expressionOut.print(fieldValue(bean: editorInstance, field: "password"))
-printHtmlPart(16)
-expressionOut.print(fieldValue(bean: editorInstance, field: "bio"))
+invokeTag('link','g',38,['action':("show"),'id':(editorInstance.id)],3)
 printHtmlPart(17)
+expressionOut.print(fieldValue(bean: editorInstance, field: "fullName"))
+printHtmlPart(17)
+expressionOut.print(fieldValue(bean: editorInstance, field: "bio"))
+printHtmlPart(18)
 i++
 }
 }
-printHtmlPart(18)
-invokeTag('paginate','g',53,['total':(editorInstanceCount ?: 0)],-1)
 printHtmlPart(19)
-})
-invokeTag('captureBody','sitemesh',56,[:],1)
+invokeTag('paginate','g',49,['total':(editorInstanceCount ?: 0)],-1)
 printHtmlPart(20)
+})
+invokeTag('captureBody','sitemesh',52,[:],1)
+printHtmlPart(21)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1412534390000L
+public static final long LAST_MODIFIED = 1412864049000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

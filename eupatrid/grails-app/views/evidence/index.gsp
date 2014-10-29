@@ -8,6 +8,7 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
+		<a href="#list-evidence" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
@@ -23,11 +24,27 @@
 			<thead>
 					<tr>
 					
+						<g:sortableColumn property="objectUrn" title="${message(code: 'evidence.objectUrn.label', default: 'Object Urn')}" />
+					
+						<g:sortableColumn property="ctsUrn" title="${message(code: 'evidence.ctsUrn.label', default: 'Cts Urn')}" />
+					
+						<g:sortableColumn property="notes" title="${message(code: 'evidence.notes.label', default: 'Notes')}" />
+					
+						<th><g:message code="evidence.editor.label" default="Editor" /></th>
+					
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${evidenceInstanceList}" status="i" var="evidenceInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+					
+						<td><g:link action="show" id="${evidenceInstance.id}">${fieldValue(bean: evidenceInstance, field: "objectUrn")}</g:link></td>
+					
+						<td>${fieldValue(bean: evidenceInstance, field: "ctsUrn")}</td>
+					
+						<td>${fieldValue(bean: evidenceInstance, field: "notes")}</td>
+					
+						<td>${fieldValue(bean: evidenceInstance, field: "editor")}</td>
 					
 					</tr>
 				</g:each>

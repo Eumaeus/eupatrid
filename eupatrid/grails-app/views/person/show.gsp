@@ -21,7 +21,15 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list person">
-			
+			<g:if test="${personInstance?.citeUrn}">
+				<li class="fieldcontain">
+					<span id="citeUrn-label" class="property-label"><g:message code="person.citeUrn.label" default="Cite Urn" /></span>
+					
+						<span class="property-value" aria-labelledby="citeUrn-label"><g:fieldValue bean="${personInstance}" field="citeUrn"/></span>
+					
+				</li>
+				</g:if>
+	
 				<g:if test="${personInstance?.personName}">
 				<li class="fieldcontain">
 					<span id="personName-label" class="property-label"><g:message code="person.personName.label" default="Person Name" /></span>

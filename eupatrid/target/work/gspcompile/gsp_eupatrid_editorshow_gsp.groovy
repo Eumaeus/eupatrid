@@ -70,45 +70,37 @@ printHtmlPart(18)
 invokeTag('fieldValue','g',37,['bean':(editorInstance),'field':("fullName")],-1)
 printHtmlPart(15)
 }
-printHtmlPart(16)
-if(true && (editorInstance?.password)) {
 printHtmlPart(19)
-invokeTag('message','g',44,['code':("editor.password.label"),'default':("Password")],-1)
-printHtmlPart(20)
-invokeTag('fieldValue','g',46,['bean':(editorInstance),'field':("password")],-1)
-printHtmlPart(15)
-}
-printHtmlPart(16)
 if(true && (editorInstance?.bio)) {
+printHtmlPart(20)
+invokeTag('message','g',45,['code':("editor.bio.label"),'default':("Bio")],-1)
 printHtmlPart(21)
-invokeTag('message','g',53,['code':("editor.bio.label"),'default':("Bio")],-1)
-printHtmlPart(22)
-invokeTag('fieldValue','g',55,['bean':(editorInstance),'field':("bio")],-1)
+invokeTag('fieldValue','g',47,['bean':(editorInstance),'field':("bio")],-1)
 printHtmlPart(15)
 }
-printHtmlPart(23)
+printHtmlPart(22)
 createTagBody(2, {->
-printHtmlPart(24)
+printHtmlPart(23)
 createTagBody(3, {->
-invokeTag('message','g',63,['code':("default.button.edit.label"),'default':("Edit")],-1)
+invokeTag('message','g',55,['code':("default.button.edit.label"),'default':("Edit")],-1)
 })
-invokeTag('link','g',63,['class':("edit"),'action':("edit"),'resource':(editorInstance)],3)
+invokeTag('link','g',55,['class':("edit"),'action':("edit"),'resource':(editorInstance)],3)
+printHtmlPart(24)
+invokeTag('actionSubmit','g',56,['class':("delete"),'action':("delete"),'value':(message(code: 'default.button.delete.label', default: 'Delete')),'onclick':("return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');")],-1)
 printHtmlPart(25)
-invokeTag('actionSubmit','g',64,['class':("delete"),'action':("delete"),'value':(message(code: 'default.button.delete.label', default: 'Delete')),'onclick':("return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');")],-1)
+})
+invokeTag('form','g',58,['url':([resource:editorInstance, action:'delete']),'method':("DELETE")],2)
 printHtmlPart(26)
 })
-invokeTag('form','g',66,['url':([resource:editorInstance, action:'delete']),'method':("DELETE")],2)
+invokeTag('captureBody','sitemesh',60,[:],1)
 printHtmlPart(27)
-})
-invokeTag('captureBody','sitemesh',68,[:],1)
-printHtmlPart(28)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1412556984000L
+public static final long LAST_MODIFIED = 1412864068000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

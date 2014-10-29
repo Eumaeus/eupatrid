@@ -8,21 +8,10 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class EvidenceController {
 
-   def beforeInterceptor = [
-        action:this.&checkUser,
-        except: ['index','list','show'] 
-    ]
-
-    def checkUser(){
-        if(!session.user){
-            redirect(controller:'editor',action:'login')
-            return false
-        }
-    }
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+        params.max = Math.min(max ?: 50, 100)
         respond Evidence.list(params), model:[evidenceInstanceCount: Evidence.count()]
     }
 

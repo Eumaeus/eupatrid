@@ -23,6 +23,10 @@
 			<thead>
 					<tr>
 					
+						<th><g:message code="relation.citeUrn.label" default="URN" /></th>
+					
+						<g:sortableColumn property="citeUrn" title="${message(code: 'relation.citeUrn.label', default: 'URN')}" />
+
 						<th><g:message code="relation.fromPerson.label" default="From Person" /></th>
 					
 						<g:sortableColumn property="relationType" title="${message(code: 'relation.relationType.label', default: 'Relation Type')}" />
@@ -41,6 +45,8 @@
 				<g:each in="${relationInstanceList}" status="i" var="relationInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
+						<td>${fieldValue(bean: relationInstance, field: "citeUrn")}</td>
+
 						<td><g:link action="show" id="${relationInstance.id}">${fieldValue(bean: relationInstance, field: "fromPerson")}</g:link></td>
 					
 						<td>${fieldValue(bean: relationInstance, field: "relationType")}</td>
