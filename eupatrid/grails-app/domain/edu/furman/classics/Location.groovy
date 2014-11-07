@@ -15,7 +15,7 @@ class Location {
                     locationLabel(blank: false)
                     pleiadesUrn(blank: false, matchs: "urn:cite:fufolio:pleiades\\.[0-9]+")
                     person(nullable: false)
-                    locationType(inList : ['isAt','isFrom','namedAfter','demoticName'])
+                    locationType(inList : ['isAt','isFrom','namedAfter','demoticName', 'guestAt', 'fightsAt'])
                     ctsUrn(blank: false, matches: "urn:cts:[a-zA-Z0-9]+:[a-zA-Z0-9]+\\.[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*:([a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*)(-([a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*))?")
                     editor(nullable: false)
     }
@@ -25,7 +25,7 @@ class Location {
     }
     
  	def afterInsert() {
-       citeUrn = "urn:cite:eupatrid:location.${this.id}"
+       citeUrn = "urn:cite:eupatrid:placeRelation.${this.id}"
     }
 
     String locationId(){

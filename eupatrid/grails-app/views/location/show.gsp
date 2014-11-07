@@ -22,6 +22,15 @@
 			</g:if>
 			<ol class="property-list location">
 			
+			<g:if test="${locationInstance?.citeUrn}">
+				<li class="fieldcontain">
+					<span id="citeUrn-label" class="property-label"><g:message code="location.citeUrn.label" default="Location CITE URN" /></span>
+					
+						<span class="property-value" aria-labelledby="citeUrn-label"><g:fieldValue bean="${locationInstance}" field="citeUrn"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${locationInstance?.locationLabel}">
 				<li class="fieldcontain">
 					<span id="locationLabel-label" class="property-label"><g:message code="location.locationLabel.label" default="Location Label" /></span>

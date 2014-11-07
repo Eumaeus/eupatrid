@@ -22,6 +22,7 @@
 			<table>
 			<thead>
 					<tr>
+					<g:sortableColumn property="citeUrn" title="${message(code: 'location.citeUrn.label', default: 'CITE URN Label')}" />
 					
 						<g:sortableColumn property="locationLabel" title="${message(code: 'location.locationLabel.label', default: 'Location Label')}" />
 					
@@ -42,6 +43,7 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<td><g:link action="show" id="${locationInstance.id}">${fieldValue(bean: locationInstance, field: "locationLabel")}</g:link></td>
+						<td><g:link action="show" id="${locationInstance.id}">${fieldValue(bean: locationInstance, field: "citeUrn")}</g:link></td>
 					
 						<td>${fieldValue(bean: locationInstance, field: "pleiadesUrn")}</td>
 					
