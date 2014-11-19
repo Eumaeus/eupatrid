@@ -23,15 +23,14 @@
 			<thead>
 					<tr>
 					
-						<th><g:message code="relation.citeUrn.label" default="URN" /></th>
-					
+										
 						<g:sortableColumn property="citeUrn" title="${message(code: 'relation.citeUrn.label', default: 'URN')}" />
 
-						<th><g:message code="relation.fromPerson.label" default="From Person" /></th>
+						<g:message code="relation.fromPerson.label" default="From Person" />
 					
 						<g:sortableColumn property="relationType" title="${message(code: 'relation.relationType.label', default: 'Relation Type')}" />
 					
-						<th><g:message code="relation.toPerson.label" default="To Person" /></th>
+						<g:message code="relation.toPerson.label" default="To Person" />
 					
 						<g:sortableColumn property="ctsUrn" title="${message(code: 'relation.ctsUrn.label', default: 'Cts Urn')}" />
 					
