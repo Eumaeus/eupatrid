@@ -7,7 +7,7 @@
 		<g:message code="relation.fromPerson.label" default="From Person" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="fromPerson" name="fromPerson.id" from="${edu.furman.classics.Person.listOrderByName()}" optionKey="id" required="" value="${relationInstance?.fromPerson?.id}" class="many-to-one"/>
+	<g:select id="fromPerson" name="fromPerson.id" from="${edu.furman.classics.Person.listOrderByUrn()}" optionKey="id" required="" value="${relationInstance?.fromPerson?.id}" class="many-to-one"/>
 
 </div>
 
@@ -25,7 +25,7 @@
 		<g:message code="relation.toPerson.label" default="To Person" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="toPerson" name="toPerson.id" from="${edu.furman.classics.Person.listOrderByName()}" optionKey="id" required="" value="${relationInstance?.toPerson?.id}" class="many-to-one"/>
+	<g:select id="toPerson" name="toPerson.id" from="${edu.furman.classics.Person.listOrderByUrn()}" optionKey="id" required="" value="${relationInstance?.toPerson?.id}" class="many-to-one"/>
 
 </div>
 
