@@ -26,17 +26,17 @@
 										
 						<g:sortableColumn property="citeUrn" title="${message(code: 'relation.citeUrn.label', default: 'URN')}" />
 
-						<g:message code="relation.fromPerson.label" default="From Person" />
+						<g:sortableColumn property="fromPerson" title="${message(code: 'relation.fromPerson.label', default: 'From Person')}" />
 					
 						<g:sortableColumn property="relationType" title="${message(code: 'relation.relationType.label', default: 'Relation Type')}" />
 					
-						<g:message code="relation.toPerson.label" default="To Person" />
+							<g:sortableColumn property="toPerson" title="${message(code: 'relation.toPerson.label', default: 'To Person')}" />
 					
 						<g:sortableColumn property="ctsUrn" title="${message(code: 'relation.ctsUrn.label', default: 'Cts Urn')}" />
 					
 						<g:sortableColumn property="notes" title="${message(code: 'relation.notes.label', default: 'Notes')}" />
 					
-						<th><g:message code="relation.editor.label" default="Editor" /></th>
+						<g:sortableColumn property="editor" title="${message(code: 'relation.editor.label', default: 'Editor')}" />
 					
 					</tr>
 				</thead>
