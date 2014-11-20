@@ -12,10 +12,10 @@ class Location {
 
     static constraints = {
             citeUrn(display: false, nullable: true, blank: true)
-                    locationLabel(blank: false)
+                    locationLabel(blank: false, size:0..250)
                     pleiadesUrn(blank: false, matchs: "urn:cite:fufolio:pleiades\\.[0-9]+")
                     person(nullable: false)
-                    locationType(inList : ['isAt','isFrom','namedAfter','demoticName', 'guestAt', 'fightsAt'])
+                    locationType(inList : ['isAt','isFrom','named4','demeNm', 'guest', 'fights'])
                     ctsUrn(blank: false, matches: "urn:cts:[a-zA-Z0-9]+:[a-zA-Z0-9]+\\.[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*:([a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*)(-([a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*))?")
                     editor(nullable: false)
     }
